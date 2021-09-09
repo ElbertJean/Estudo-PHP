@@ -8,7 +8,7 @@ str_pad -> Complementa a string com uma quantidade especificada de caracteres.
 str_repeat -> Repete a string determinadas vezes.
 strlen -> Conta o comprimento da string.
 str_replace -> Substituie uma palavra em especifício.
-strpos -> 
+strpos -> Procura a posição de uma determinada palavra.
 
 ******************STRTOUPPER******************
 $nome = "elbert";
