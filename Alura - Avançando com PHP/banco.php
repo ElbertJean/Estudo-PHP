@@ -1,7 +1,7 @@
 <?php
 
 //include "funcoes.php";
-//require "funcoes.php";
+//require "funcoes.php"";
 require_once "funcoes.php";
 
 $contasCorrentes = [
