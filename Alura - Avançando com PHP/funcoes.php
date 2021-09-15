@@ -25,3 +25,9 @@ function depositar(array $conta, float $valorADepositar) : array
     }
     return $conta;
 }
+
+function titularComLetrasMaiusculas (array &$conta) 
+//& indica que está pegando a conta em si e não uma cópia dela.
+{
+    $conta["titular"] = strtoupper($conta["titular"]);
+}
