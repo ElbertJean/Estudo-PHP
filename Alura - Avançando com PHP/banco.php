@@ -1,18 +1,8 @@
 <?php
 
-function exibeMensagem ($mensagem) {
-    echo $mensagem . "\n";
-}
-
-function sacar ($conta, $valorASacar){
-    if ($valorASacar> $conta["saldo"]){
-        exibeMensagem("Você não pode sacar");
-    } else {
-        $conta["saldo"] -= $valorASacar;
-    }
-
-    return $conta;
-}
+//include "funcoes.php";
+//require "funcoes.php";
+require_once "funcoes.php";
 
 $contasCorrentes = [
     "123.456.789-10" => [
@@ -29,9 +19,12 @@ $contasCorrentes = [
     ]
 ];
 
-$contasCorrentes["123.456.789-10"] = sacar($contasCorrentes["123.456.789-10"], 1000);
-$contasCorrentes["123.456.234-10" ] = sacar($contasCorrentes["123.456.234-10" ], 1000);
+$contasCorrentes["123.456.789-10"] = depositar($contasCorrentes["123.456.789-10"], 1000);
+$contasCorrentes["123.456.234-10" ] = sacar($contasCorrentes["123.456.234-10" ], 200);
 
 foreach ($contasCorrentes as $indice => $valor) {
-    echo "CPF: " . $indice . " : " . $valor["titular"] . " | Saldo : " . $valor["saldo"] . "\n";
+    exibeMensagem("CPF: $indice : {$valor["titular"]} | Saldo : {$valor["saldo"]}");
+   
+    //Também pode se utilizar sem as chaves, basta utilizar o parâmetro sem aspas dentro do conchetes
+    //exibeMensagem("CPF: $indice : $valor[titular] | Saldo : $valor[saldo]");
 }
