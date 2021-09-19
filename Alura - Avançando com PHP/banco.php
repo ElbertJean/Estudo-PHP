@@ -26,15 +26,39 @@ titularComLetrasMaiusculas($contasCorrentes["123.456.234-10"]);
 $contasCorrentes["123.456.789-10"] = depositar($contasCorrentes["123.456.789-10"], 1000);
 $contasCorrentes["123.456.234-10" ] = sacar($contasCorrentes["123.456.234-10" ], 200);
 
+/* 
 foreach ($contasCorrentes as $indice => $valor) {
-    //list ("titular" => $titular , "saldo" => $saldo) = $valor;
+    list ("titular" => $titular , "saldo" => $saldo) = $valor;
     ["titular" => $titular , "saldo" => $saldo]  = $valor;
 
+    exibeConta($valor);
+    
     exibeMensagem("CPF: $indice");
     exibeMensagem("Titular: $titular");
     exibeMensagem("Saldo $saldo");
     exibeMensagem("");
-    //exibeMensagem("CPF: $indice : {$valor["titular"]} | Saldo : {$valor["saldo"]}");
-    //Também pode se utilizar sem as chaves, basta utilizar o parâmetro sem aspas dentro do conchetes
-    //exibeMensagem("CPF: $indice : $valor[titular] | Saldo : $valor[saldo]");
+    
+    exibeMensagem("CPF: $indice : {$valor["titular"]} | Saldo : {$valor["saldo"]}");
+    Também pode se utilizar sem as chaves, basta utilizar o parâmetro sem aspas dentro do conchetes
+    exibeMensagem("CPF: $indice : $valor[titular] | Saldo : $valor[saldo]");
 }
+*/
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Banco</title>
+</head>
+<body>
+    <h1>Contas Correntes</h1>
+    <ul>
+        <?php foreach ($contasCorrentes as $cpf => $contas) { ?>  
+            <li><h2><?= "Titular: $contas[titular]" ?></h2></li>
+            <li><h3><?= "CPF: $cpf" ?></h3></li>
+            <li><?= "Saldo: $contas[saldo]" ?></li>
+        <?php } ?>
+    </ul>
+</body>
+</html>
