@@ -34,27 +34,34 @@ class Conta
         $contaDestino -> depositar ($valorATransferir);
     }
 
-    public function recuperarSaldoTitular () : float {
+    public function recuperarSaldo (){
         return $this -> saldo;
     }
-
-    public function definirCpfTitular (string $cpf) : void {
-        $this -> cpfTitular = $cpf;
-    }
-
-    public function recuperarCpfTitular () : string {
-        return $this -> cpfTitular;
-    }
-
-    public function definirNomeTitular (string $nome) : void {
-        $this -> nomeTitular = $nome;
-    }
-
-    public function recuperarNomeTitular () :string {
-        return $this -> nomeTitular;
-    }
-
-
-
-
 }
+
+$primeiraConta = new Conta ();
+$primeiraConta->cpfTitular = "123.456.789-00";
+$primeiraConta->nomeTitular = "Elbin";
+$primeiraConta->saldo = "500";
+
+$segundaConta = new Conta ();
+$segundaConta->cpfTitular = "060.027.668-63";
+$segundaConta->nomeTitular = "Tia Nice";
+$segundaConta->saldo = "5500";
+
+
+print_r ($segundaConta);
+
+$segundaConta -> depositar (-500);
+
+print_r ($segundaConta);
+
+///////////////////////////////////////////////////////////////////////////
+
+$contaUm = new Conta ();
+$contaUm -> depositar (500);
+$contaDois = new Conta ();
+$contaUm -> transferir (300, $contaDois);
+
+echo $contaUm -> saldo . "\n";
+echo $contaDois -> saldo;
