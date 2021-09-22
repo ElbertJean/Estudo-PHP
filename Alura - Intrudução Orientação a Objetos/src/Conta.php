@@ -4,7 +4,17 @@ class Conta
 {
     private string $cpfTitular;
     private string $nomeTitular;
-    private float $saldo = 0 ;
+    private float $saldo;
+
+    public function __construct (string $cpfTitular, string $nomeTitular)
+    {
+        $this -> cpfTitular = $cpfTitular;
+        $this -> validaNomeTitular($nomeTitular);
+        $this -> nomeTitular = $nomeTitular;
+        $this -> saldo = 0;
+    }
+
+
 
     public function sacar(float $valorASacar){
         if ($valorASacar > $this -> saldo){
@@ -38,23 +48,19 @@ class Conta
         return $this -> saldo;
     }
 
-    public function definirCpfTitular (string $cpf) : void {
-        $this -> cpfTitular = $cpf;
-    }
-
     public function recuperarCpfTitular () : string {
         return $this -> cpfTitular;
-    }
-
-    public function definirNomeTitular (string $nome) : void {
-        $this -> nomeTitular = $nome;
     }
 
     public function recuperarNomeTitular () :string {
         return $this -> nomeTitular;
     }
 
-
-
-
+    private function validaNomeTitular(string $nomeTitular)
+    {
+        if (strlen($nomeTitular) <5){
+            echo "O nome precisa conter pelo menos 5 caracteres";
+            exit ();
+        }
+    }
 }
